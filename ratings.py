@@ -16,9 +16,25 @@ def restaurant_ratings(text):
         for restaurant in restaurants:
             ratings[restaurants[0]] = restaurants[1]
 
-    for restaurant in sorted(ratings):
-        print(f"{restaurant} is rated at {ratings[restaurant]}")
+    return rating
 
 
+ratings_dict = restaurant_ratings("scores.txt")
+
+
+def sorted_ratings(dict):
+    for restaurant in sorted(dict):
+        print(f"{restaurant} is rated at {dict[restaurant]}")
+
+sorted_ratings(ratings_dict)
+
+
+def new_recommendations(old_dicts):
+    new_dicts = old_dicts
+
+    new_restaurant = input("Please enter restaurant name: ")
+    new_rating = input("Please enter restaurant score: ")
+
+    new_dicts[new_restaurant] = new_rating
 
 restaurant_ratings("scores.txt")
